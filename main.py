@@ -51,7 +51,7 @@ while True:
         cat_gender = input("\nCat gender (m/f): ").lower()
         while True:
             if cat_gender != 'm' and cat_gender != 'f':
-                cat_gender = input("\nEnter cat name: ").lower()
+                cat_gender = input("\nCat gender (m/f): ").lower()
             else:
                 break
         

@@ -3,9 +3,9 @@ import mysql.connector
 '''
 State your group member name and id here:
 1. Sreng KIM 2022217
-2. Makara HENG 
-3. Dydamian LENG
-4. Tempanha TIM
+2. Makara HENG 2022290
+3. Dydamian LENG 2021185
+4. Tempanha TIM 2022231
 
 '''
 

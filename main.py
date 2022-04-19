@@ -64,12 +64,12 @@ while True:
         
         while True:
             try:
-                cat_breed = breeds[register_breed]
+                cat_breed = breeds[register_breed-1]
             except IndexError:
                 register_breed = int(
                 input(f"\nEnter menu number 1 -> {len(breeds)}: "))
             else:
-                cat_breed = breeds[register_breed]
+                cat_breed = breeds[register_breed-1]
                 break
 
         cat_dob = input(

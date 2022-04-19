@@ -48,7 +48,13 @@ while True:
         elif register_name == "2":
             cat_name = input("\nEnter cat name: ")
 
-        cat_gender = input("\nCat gender (m/f): ")
+        cat_gender = input("\nCat gender (m/f): ").lower()
+        while True:
+            if cat_gender != 'm' and cat_gender != 'f':
+                cat_gender = input("\nEnter cat name: ").lower()
+            else:
+                break
+        
 
         display_breed()
 

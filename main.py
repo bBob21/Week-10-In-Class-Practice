@@ -60,7 +60,17 @@ while True:
 
         register_breed = int(
             input(f"\nEnter menu number 1 -> {len(breeds)}: "))
-        cat_breed = breeds[register_breed]
+        
+        
+        while True:
+            try:
+                cat_breed = breeds[register_breed]
+            except IndexError:
+                register_breed = int(
+                input(f"\nEnter menu number 1 -> {len(breeds)}: "))
+            else:
+                cat_breed = breeds[register_breed]
+                break
 
         cat_dob = input(
             f"\nEnter {'her' if cat_gender == 'f' else 'his'} date of birth (yyyy-mm-dd): ")

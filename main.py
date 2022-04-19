@@ -48,29 +48,26 @@ while True:
         elif register_name == "2":
             cat_name = input("\nEnter cat name: ")
 
-        cat_gender = input("\nCat gender (m/f): ").lower()
         while True:
+            cat_gender = input("\nCat gender (m/f): ").lower()
             if cat_gender != 'm' and cat_gender != 'f':
-                cat_gender = input("\nCat gender (m/f): ").lower()
+                temp = 0
             else:
                 break
         
 
         display_breed()
 
-        register_breed = int(
-            input(f"\nEnter menu number 1 -> {len(breeds)}: "))
-        
-        
         while True:
             try:
-                cat_breed = breeds[register_breed]
-            except IndexError:
                 register_breed = int(
-                input(f"\nEnter menu number 1 -> {len(breeds)}: "))
-            else:
-                cat_breed = breeds[register_breed]
+                    input(f"\nEnter menu number 1 -> {len(breeds)}: "))
+                if register_breed <= 0:
+                    temp = 1/0
+                cat_breed = breeds[register_breed-1]
                 break
+            except Exception:
+                temp = 0
 
         cat_dob = input(
             f"\nEnter {'her' if cat_gender == 'f' else 'his'} date of birth (yyyy-mm-dd): ")
@@ -99,18 +96,31 @@ while True:
         if update_name == '':
             update_name = name
 
-        update_gender = input(f"Update Gender ({gender}): ")
-        if update_gender == '':
-            update_gender = gender
+        while True:
+            update_gender = input(f"Update Gender ({gender}): ").lower()
+            if update_gender == '':
+                update_gender = gender
+                break
+            elif update_gender == 'm' or update_gender == "f":
+                break
+            else:
+                temp = 0
 
         display_breed()
-        update_breed = int(
-            input(f"\nenter menu number 1 -> {len(breeds)} ({breed}): "))
-        if update_breed == '':
-            update_breed = breed
-        else:
-            update_breed = breeds[update_breed - 1]
-
+        while True:
+            try:
+                update_breed = int(
+                    input(f"\nenter menu number 1 -> {len(breeds)} ({breed}): "))
+                if update_breed <= 0:
+                    1/0
+                elif update_breed == '':
+                    update_breed = breed
+                else:
+                    update_breed = breeds[update_breed - 1]
+                break
+            except Exception:
+                temp = 0
+                
         update_dob = input(f"Update DOB ({dob}): ")
         if update_dob == '':
             update_dob = dob
@@ -128,5 +138,9 @@ while True:
         remove_cat_id = int(input("\nCat ID to be remove: "))
         remove_cat(remove_cat_id)
 
-    else:
+    elif menu_one_input == "5":
+        print("Bye")
         break
+
+    else:
+        print("\n")

@@ -59,7 +59,7 @@ def get_cat(id):
     '''
     sql = f"SELECT * FROM cats WHERE id = {id}"
     cursor.execute(sql)
-    result = cursor.fetchall()
+    result = cursor.fetchone()
     return result
 
 
